@@ -1,6 +1,7 @@
 package com.liveclass.creatorsettlement.settlement.domain;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -34,7 +35,8 @@ public class Settlement {
   @Column(name = "creator_id", nullable = false)
   private Long creatorId;
 
-  @Column(name = "year_month", nullable = false, length = 7)
+  @Convert(converter = YearMonthAttributeConverter.class)
+  @Column(name = "year_month", nullable = false, length = 7, columnDefinition = "VARCHAR(7)")
   private YearMonth yearMonth;
 
   @Column(nullable = false)
