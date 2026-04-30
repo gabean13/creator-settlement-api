@@ -31,10 +31,10 @@ public class Refund {
   @Column(name = "purchase_id", nullable = false)
   private Long purchaseId;
 
-  @Column(nullable = false)
+  @Column(name = "refund_amount", nullable = false)
   private Long refundAmount;
 
-  @Column(nullable = false)
+  @Column(name = "refunded_at", nullable = false)
   private LocalDateTime refundedAt;
 
   @Column(name = "idempotency_key", nullable = false, length = 64)

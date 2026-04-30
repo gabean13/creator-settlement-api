@@ -21,7 +21,7 @@ public class Course {
   private Long id;
 
   // CREATOR 유형 User 의 id
-  @Column(nullable = false)
+  @Column(name = "creator_id", nullable = false)
   private Long creatorId;
 
   @Column(nullable = false)
@@ -30,7 +30,7 @@ public class Course {
   @Column(nullable = false)
   private Long price;
 
-  @Column(nullable = false)
+  @Column(name = "created_at", nullable = false)
   private LocalDateTime createdAt;
 
   @Builder

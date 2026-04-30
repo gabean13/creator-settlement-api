@@ -25,11 +25,12 @@ public class FeeRate {
   @Column(nullable = false, precision = 6, scale = 4)
   private BigDecimal rate;
 
-  @Column(nullable = false)
+  @Column(name = "start_at", nullable = false)
   private LocalDateTime startAt;
 
   // null 이면 현재 적용 중
-  @Column private LocalDateTime endAt;
+  @Column(name = "end_at")
+  private LocalDateTime endAt;
 
   @Builder
   private FeeRate(BigDecimal rate, LocalDateTime startAt, LocalDateTime endAt) {

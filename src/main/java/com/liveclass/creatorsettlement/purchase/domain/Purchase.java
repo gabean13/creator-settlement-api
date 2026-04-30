@@ -38,10 +38,10 @@ public class Purchase {
   @Column(name = "course_id", nullable = false)
   private Long courseId;
 
-  @Column(nullable = false)
+  @Column(name = "paid_amount", nullable = false)
   private Long paidAmount;
 
-  @Column(nullable = false)
+  @Column(name = "paid_at", nullable = false)
   private LocalDateTime paidAt;
 
   @Enumerated(EnumType.STRING)

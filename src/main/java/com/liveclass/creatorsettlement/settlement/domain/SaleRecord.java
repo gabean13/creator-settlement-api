@@ -32,30 +32,30 @@ public class SaleRecord {
   @Column(name = "purchase_id", nullable = false)
   private Long purchaseId;
 
-  @Column(nullable = false)
+  @Column(name = "creator_id", nullable = false)
   private Long creatorId;
 
   // 판매 금액 (취소 전 원금)
-  @Column(nullable = false)
+  @Column(name = "gross_amount", nullable = false)
   private Long grossAmount;
 
   // 누적 환불 금액
-  @Column(nullable = false)
+  @Column(name = "refund_amount", nullable = false)
   private Long refundAmount;
 
   // 결제 시점 수수료율 스냅샷 (이후 FeeRate 변경에도 영향 없음)
-  @Column(nullable = false, precision = 6, scale = 4)
+  @Column(name = "fee_rate_snapshot", nullable = false, precision = 6, scale = 4)
   private BigDecimal feeRateSnapshot;
 
   // 스냅샷 기준으로 산정된 수수료
-  @Column(nullable = false)
+  @Column(name = "fee_amount", nullable = false)
   private Long feeAmount;
 
   // 정산 금액 = grossAmount - refundAmount - feeAmount (음수 허용)
-  @Column(nullable = false)
+  @Column(name = "net_amount", nullable = false)
   private Long netAmount;
 
-  @Column(nullable = false)
+  @Column(name = "paid_at", nullable = false)
   private LocalDateTime paidAt;
 
   @Enumerated(EnumType.STRING)

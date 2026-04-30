@@ -39,24 +39,25 @@ public class Settlement {
   @Column(name = "year_month", nullable = false, length = 7, columnDefinition = "VARCHAR(7)")
   private YearMonth yearMonth;
 
-  @Column(nullable = false)
+  @Column(name = "total_gross_amount", nullable = false)
   private Long totalGrossAmount;
 
-  @Column(nullable = false)
+  @Column(name = "total_refund_amount", nullable = false)
   private Long totalRefundAmount;
 
-  @Column(nullable = false)
+  @Column(name = "total_fee_amount", nullable = false)
   private Long totalFeeAmount;
 
   // 음수 허용 (취소 금액 > 정산 금액 케이스)
-  @Column(nullable = false)
+  @Column(name = "total_net_amount", nullable = false)
   private Long totalNetAmount;
 
   @Enumerated(EnumType.STRING)
   @Column(nullable = false, length = 16)
   private SettlementStatus status;
 
-  @Column private LocalDateTime paidAt;
+  @Column(name = "paid_at")
+  private LocalDateTime paidAt;
 
   @Builder
   private Settlement(
