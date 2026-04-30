@@ -1,4 +1,4 @@
-package com.liveclass.creatorsettlement.purchase;
+package com.liveclass.creatorsettlement.purchase.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

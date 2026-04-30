@@ -1,4 +1,4 @@
-package com.liveclass.creatorsettlement.settlement;
+package com.liveclass.creatorsettlement.settlement.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

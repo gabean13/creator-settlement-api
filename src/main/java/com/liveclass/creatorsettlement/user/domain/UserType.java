@@ -1,4 +1,4 @@
-package com.liveclass.creatorsettlement.user;
+package com.liveclass.creatorsettlement.user.domain;
 
 public enum UserType {
   CUSTOMER,

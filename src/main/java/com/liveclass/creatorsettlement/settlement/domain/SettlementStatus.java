@@ -1,4 +1,4 @@
-package com.liveclass.creatorsettlement.settlement;
+package com.liveclass.creatorsettlement.settlement.domain;
 
 public enum SettlementStatus {
   // 정산 대상으로 집계됐지만 아직 확정 전

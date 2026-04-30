@@ -1,10 +1,11 @@
-package com.liveclass.creatorsettlement.course;
+package com.liveclass.creatorsettlement.fee.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -14,30 +15,26 @@ import lombok.NoArgsConstructor;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Course {
+public class FeeRate {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  // CREATOR 유형 User 의 id
-  @Column(nullable = false)
-  private Long creatorId;
+  // 0.1500 = 15%
+  @Column(nullable = false, precision = 6, scale = 4)
+  private BigDecimal rate;
 
   @Column(nullable = false)
-  private String title;
+  private LocalDateTime startAt;
 
-  @Column(nullable = false)
-  private Long price;
-
-  @Column(nullable = false)
-  private LocalDateTime createdAt;
+  // null 이면 현재 적용 중
+  @Column private LocalDateTime endAt;
 
   @Builder
-  private Course(Long creatorId, String title, Long price, LocalDateTime createdAt) {
-    this.creatorId = creatorId;
-    this.title = title;
-    this.price = price;
-    this.createdAt = createdAt;
+  private FeeRate(BigDecimal rate, LocalDateTime startAt, LocalDateTime endAt) {
+    this.rate = rate;
+    this.startAt = startAt;
+    this.endAt = endAt;
   }
 }

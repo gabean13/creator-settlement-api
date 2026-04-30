@@ -1,4 +1,4 @@
-package com.liveclass.creatorsettlement.refund;
+package com.liveclass.creatorsettlement.refund.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
