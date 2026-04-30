@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class CreatorSettlementApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(CreatorSettlementApplication.class, args);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(CreatorSettlementApplication.class, args);
+  }
 }
