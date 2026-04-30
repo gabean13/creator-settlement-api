@@ -55,3 +55,19 @@ spotless {
 tasks.named('check').configure {
     dependsOn 'spotlessCheck'
 }
+
+// Git pre-commit/pre-push 훅을 .git/hooks 로 복사 설치
+tasks.register('installGitHooks', Copy) {
+    description = 'scripts/git-hooks 의 훅들을 .git/hooks 로 복사한다.'
+    group = 'git hooks'
+    from "${rootDir}/scripts/git-hooks"
+    into "${rootDir}/.git/hooks"
+    filePermissions {
+        unix('rwxr-xr-x')
+    }
+}
+
+// build 시점에 훅도 자동 설치 (한 번만 수동 실행도 가능: ./gradlew installGitHooks)
+tasks.named('build').configure {
+    dependsOn 'installGitHooks'
+}

@@ -1,0 +1,26 @@
+#!/bin/sh
+# 커밋 전 Spotless 포맷 검사 실행.
+# 실패 시 ./gradlew spotlessApply 로 자동 수정 후 재커밋.
+
+set -e
+
+# 스테이징된 Java 파일이 없으면 검사 생략
+STAGED_JAVA=$(git diff --cached --name-only --diff-filter=ACMR | grep -E '\.java$' || true)
+if [ -z "$STAGED_JAVA" ]; then
+    exit 0
+fi
+
+echo "[pre-commit] Spotless 검사 실행 중..."
+
+if ! ./gradlew --quiet spotlessCheck; then
+    echo ""
+    echo "❌ Spotless 검사 실패"
+    echo "   다음 명령으로 자동 수정 후 다시 커밋하세요:"
+    echo ""
+    echo "     ./gradlew spotlessApply"
+    echo ""
+    exit 1
+fi
+
+echo "[pre-commit] OK"
+exit 0
