@@ -28,7 +28,6 @@
 
 ## Additional Instructions
 - Project overview: @README.md
-- Git workflow: @docs/git-instructions.md
 
 ## Code Style
 - Lombok 사용 (@RequiredArgsConstructor 선호, @Data/@Setter 지양)
