@@ -16,7 +16,6 @@ allowed-tools: Bash(git status*), Bash(git diff*), Bash(git log*), Bash(git add*
 - `git log -5 --oneline` — 최근 커밋 스타일 참고
 
 ### 2. 사전 검증
-- **자격증명/시크릿 파일 검사**: `application.properties`(실제 자격증명 포함), `application-local.properties`, `application-secret.properties`, `.env` 류는 절대 커밋하지 않는다. 스테이징되어 있으면 사용자에게 즉시 경고하고 중단.
 - **변경 없음**: staged + unstaged 모두 비어 있으면 빈 커밋 만들지 말고 종료.
 
 ### 3. 빌드/테스트 (선택, 권장)

@@ -4,10 +4,34 @@
 > 라이브클래스 크리에이터의 정산 관련 API 개발
 
 ## 실행 방법
-도커로 실행 방법 작성 예정
+> **사전 준비:** Docker Desktop (또는 Docker Engine + Compose v2) 설치만 필요합니다. JDK/Gradle/PostgreSQL/Redis를 별도로 설치할 필요가 없습니다.
+
+```bash
+docker compose up --build
+```
+
+**앱 + PostgreSQL + Redis** 가 모두 기동됩니다.
+- 앱: http://localhost:8080
+- PostgreSQL: localhost:5432
+- Redis: localhost:6379
+
+종료/초기화:
+```bash
+docker compose down       # 컨테이너 종료
+docker compose down -v    # 컨테이너 + DB 볼륨까지 제거(완전 초기화)
+```
+
+> **`.env` 파일이 저장소에 함께 커밋되어 있습니다.**
+> 보안상 비밀값은 저장소에 올리지 않는 것이 원칙이지만, 본 과제에서는 평가자가 별도 환경 설정 없이 즉시 빌드·실행할 수 있도록 의도적으로 포함했습니다.
 
 ## 테스트 실행 방법
-테스트를 위한 HTTP 파일 첨부 예정
+```bash
+./gradlew test                                 # 전체 테스트
+./gradlew test --tests "ClassName.methodName"  # 단일 테스트
+```
+테스트는 H2 인메모리 DB로 동작하므로 별도 인프라가 필요 없습니다.
+
+> API 호출용 HTTP 파일은 추후 첨부 예정.
 
 ---
 
